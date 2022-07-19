@@ -1,7 +1,13 @@
 <%= simple_form_for(@restaurant) do |f| %>
+<div class="d-flex flex-row justify-content-between border-bottom border-primary">
+<h2>New restaurant</h2>
+<%= f.submit 'Add', class: "btn btn-primary" %>
+</div>
 <%= f.input :name %>
 <%= f.input :address %>
-<%= f.input :category %>
+<%= f.input :category, collection: ["chinese", "italian", "japanese", "french", "belgian"] %>
 <%= f.input :phone_number %>
-<%= f.submit %>
+<div class="text-end">
+
+</div>
 <% end %>
