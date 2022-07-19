@@ -6,10 +6,17 @@
     <p><em>Phone:</em> <%= @restaurant.phone_number %></p>
   <% end %>
 </div>
-<% @restaurant.reviews.each do |review| %>
-<div class="card mb-3 shadow <%= review.rating > 2 ? 'border-success' : 'border-danger' %>">
-  <div class="card-body">
-    <p><%= '⭐'*review.rating %><%= review.content %></p>
+<div class="row">
+  <div class="col-12 col-md-3">
+    <%= render "reviews/new" %>
+  </div>
+  <div class="col-12 col-md">
+    <% @restaurant.reviews.order(:created_at).reverse.each do |review| %>
+    <div class="card mb-3 shadow <%= review.rating > 2 ? 'border-success' : 'border-danger' %>">
+      <div class="card-body">
+        <p><%= '⭐'*review.rating %><%= review.content %></p>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
-<% end %>

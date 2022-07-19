@@ -2,11 +2,11 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: :show
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.order(:created_at).reverse
   end
 
   def show
-
+    @review = Review.new
   end
 
   def new
