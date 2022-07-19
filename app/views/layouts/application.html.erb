@@ -11,6 +11,18 @@
   </head>
 
   <body>
+    <div class="p-1 mb-3 nav-bar bg-dark text-light d-flex justify-content-between">
+      <div>
+        <%= link_to "Home", restaurants_path, class: "text-decoration-none text-light" %>
+        <%# <%= link_to "Add Restaurant", new_restaurant_path %>
+      </div>
+      <% if @restaurant && @restaurant.id %>
+      <div>
+        Add Review
+        <%# <%= link_to "Add Review", new_review_restaurant_path %>
+      </div>
+      <% end %>
+    </div>
     <div class="container">
     <%= yield %>
     </div>
