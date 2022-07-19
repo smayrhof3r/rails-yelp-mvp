@@ -1,0 +1,13 @@
+<h1 class = "border-bottom"><%= @restaurant.name %></h1>
+<div class="container text-center text-muted border-bottom mb-3">
+  <p><em>Category:</em> <%= @restaurant.category %></p>
+  <p><em>Address:</em> <%= @restaurant.address %></p>
+  <p><em>Phone:</em> <%= @restaurant.phone_number %></p>
+</div>
+<% @restaurant.reviews.each do |review| %>
+<div class="card mb-3 shadow <%= review.rating > 2 ? 'border-sucess' : 'border-danger' %>">
+  <div class="card-body">
+    <p><%= '⭐'*review.rating %><%= review.content %></p>
+  </div>
+</div>
+<% end %>
