@@ -1,10 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_restaurant
 
-  # def new
-  #   @review = Review.new
-  # end
-
   def create
     @review = Review.create(review_params)
     @review.restaurant = @restaurant
